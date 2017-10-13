@@ -1,1 +1,1 @@
-alert('Bienvenue sur GIT');
+alert('GitHub');

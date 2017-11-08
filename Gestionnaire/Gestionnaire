@@ -18,7 +18,7 @@
 
       <!-- Compte client -->
 
-      <div class="" id="cxpmClientAccountWidget" data-salon="saloon" data-sessionSalon="saloon_2018" data-language="fre-FR" data-version="1">
+      <div id="cxpmClientAccountWidget" data-salon="saloon" data-sessionSalon="saloon_2018" data-language="fre-FR" data-version="1">
 
         <!-- NON CONNECTÉ -->
         <div class="not-logged">

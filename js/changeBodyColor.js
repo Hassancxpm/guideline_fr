@@ -1,1 +1,1 @@
-$('body').css("background", "black");
+$('body').css("background", "green");

@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Documentation GIT</title>
+  <link rel="icon" href="data:image/png;base64,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">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.6.0/introjs.min.css">
+</head>
+<body id="sec-0">
+    <div class="bodyintro">
+      <div class="wrapper">
+        <p><img class="cxpmlogo" src="https://www.vinovisionparis.com/theme/vinovision_desktop/img/comexposium-logo.png"></p>
+        <h1 class="doch1">DOCUMENTATION GIT</h1>
+        <nav class="vertical">
+          <ul>
+            <li>
+              <label for="home">Introduction</label>
+              <input type="radio" checked="true" name="verticalMenu" id="home" />
+              <div>
+                <p>La fonctionnalité permettant d’utiliser GIT pour gérer les thèmes vient s’ajouter à la gestion déjà existante qui se base sur des répertoires et des fichiers administrés via l’outil Kloudspeaker.</p>
+                <p>Un site pourra donc utiliser soit KloudSPeaker, soit GIT.</p>
+              </div>
+            </li>
+            <li>
+              <label for="blog">Qu'est ce que GIT ?</label>
+              <input type="radio" name="verticalMenu" id="blog" />
+              <div>
+                <p class="gras">Git, c'est un gestionnaire de versioning.</p>
+                 <p>Git permet d'héberger les fichiers de ressources utilisés par les différents site web, sauf qu'il offre plusieurs avantages en plus comparé à KloudSpeaker :</p>
+                 <ul class="listing">
+                   <li>Voir qui modifie quoi dans les fichiers de ressources</li>
+                   <li>Revenir à une version antérieure simplement</li>
+                   <li>Avoir un historique de tous les fichiers et de tous les intervenants</li>
+                 </ul>
+                 <p class="gras">En résumé, Git est un outil parfait pour la collaboration.</p>
+                 <p><span class="gras">Pourquoi utiliser quelque chose comme Git ?</span><br /> Sur KloudSpeaker, si jamais quelqu'un fais des modifications en même temps que quelqu'un d'autre, le travail de l'une des personne va être complètement écrasé et nous ne trouverions même pas le moyen de comprendre exactement ce qui s'est passé.<br /><br />
+                 <span class="gras">Une application de contrôle de version comme Git empêche cela d’arriver.</span></p>
+              </div>
+            </li>
+            <li>
+              <label for="work">Fonctionnement</label>
+              <input type="radio" name="verticalMenu" id="work" />
+              <div>
+                <p>Nous et les différentes agences allons chacun de notre côté faire nos modifications sur la même page, et Git sauvegardera deux copies.<br /><br /> Plus tard, nous pourrons fusionner nos modifications et celles des agences sans perdre le travail dans le processus.<br /><br /> Nous pouvons même revenir en arrière à tout moment sur une ancienne version, parce que Git conserve une “copie instantanée” de tous les changements produits.</p>
+                <p>Tout peut se gérer depuis l'interface web, ou bien via un logiciel que nous pouvons installer.</p>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- Contenu documentation-->
+    <div class="nava">
+      <p class="titremenu">MENU</p>
+      <a class="anava" href="#sec-0" class="current">INTRO</a>
+      <a class="anava" href="#sec-1">Pré-requis</a>
+      <a class="anava" href="#sec-2">LE CMS</a>
+      <a class="anava" href="#sec-3">MISES à JOUR</a>
+      <a class="anava" href="#sec-4">KS TO GIT</a>
+      <a class="anava" href="#sec-5">FAQ</a>
+      <a class="anava" href="#sec-6" onclick="javascript:introJs().setOption('showProgress', true).start(); this.onclick=null;$('.introjs-prevbutton').html('← Retour');$('.introjs-nextbutton').html('Suivant →');$('.introjs-skipbutton').html('Fermer');$('.introjs-donebutton').html('c\'est bon')">BAC à SABLE</a>
+    </div>
+
+<main>
+  <section id="sec-1">
+    <h1>PRé-REQUIS</h1>
+    <p>Le côté peu commun de la fonctionnalité nécessite de respecter certaines règles qui n’ont cependant rien de bloquant :</p>
+    <p>
+      <ul>
+        <li>Un thème ne peut être représenté que par un seul dépôt git et un dépôt git ne peut contenir qu’un seul thème.<br /><span class="italic">Un thème ne peut donc pas avoir ses css sur un dépôt, et ses js sur un autre.</span></li>
+        <li>Un dépôt ne contient les fichiers que d’un unique thème.</li>
+        <li>Seule la branche master est prise en compte et mise à jour sur le serveur pour le moment.</li>
+        <li>Le répertoire du dépôt correspond au répertoire du thème.<br /><span class="italic">On s’attend donc à avoir directement à la racine du dépôt les répertoires “css”, “js”, “img”, etc.</span></li>
+        <li>Le dépôt doit obligatoirement être disponible via https</li>
+      </ul>
+    </p>
+    <p>Quelques conseils :</p>
+    <p>
+      <ul>
+        <li>Le dépôt sera fort probablement protégé par un couple identifiant/mot de passe. Il est conseillé de créer un compte spécifique pour la plateforme Comexposium, ayant les droits de lecture sur le dépôt.</li>
+      </ul>
+    </p>
+
+  </section>
+  <section id="sec-2">
+    <h1>LE CMS</h1>
+    <p>La gestion des thèmes se fait via des objets eZPublish de la classe “Thème git” dans le groupe “Salons”. Un répertoire spécial a été créé dans le backoffice pour accueillir les thèmes git : <span class="gras">“Thèmes git” qui se trouve à la racine du contenu.</span></p>
+    <img class="dossierGit" src="dossier-git.jpg" alt="">
+    <p>Dans ce dossier, se trouveront tous les thèmes des sites gérés depuis GIT :</p>
+    <img class="themeGit" src="theme-git.png" alt=""><br /><br />
+    <p>Lorsque l'on cliquera sur les thèmes, nous aurons accès au paramétrage de ceux-ci : </p>
+    <img class="themeGit" src="git-theme.png" alt=""><br /><br />
+    <p>Les attributs de la classe sont les suivants :</p>
+    <p>
+      <ul>
+        <li><span class="gras">Titre</span> : il s’agit du titre du thème. Il est utilisé uniquement en affichage dans le back-office</li>
+        <li><span class="gras">Nom du thème pour la config</span> :  il s’agit du nom du thème qui sera utilisé sur la plateforme, dans le répertoire des thèmes existants. <br /><span class="italic">Exemple : foiredeparis_2018_mobile.</span><br />
+        Le nom du thème doit être composé uniquement de lettres minuscules et du caractère “_”
+        </li>
+        <li><span class="gras">URL du dépôt</span> :  il s’agit de l’URL du dépôt, <span class="gras">obligatoirement en https</span><br />
+        <span class="italic">Exemple ci-dessus : https://github.com/comexposium/retest.git</span><br />
+        <span class="italic">Autre exemple fictif : https://github.com/comexposium/theme_foiredeparis.git</span><br />
+        Cette adresse est celle de clonage qui est fournie par l’outil de versionning, par exemple avec Github, le bouton vert “Clone or download”
+        </li>
+        <li><span class="gras">Nom d'utilisateur</span> : l’identifiant pour se connecter au dépôt git.<br />
+        Dans le cas d’un dépôt public, laisser cette valeur vide
+        </li>
+        <li><span class="gras">Mot de passe</span> : le mot de passe associé au nom d’utilisateur.<br />
+        Dans le cas d’un dépôt public, laisser cette valeur vide
+        </li>
+      </ul>
+    </p>
+    <p>A la création d’un objet, aucune action n’est réalisée sur le serveur. Un nouveau bouton apparaît en backoffice pour les thèmes git : <span class="gras">“Mettre à jour”</span>.
+    C'est ce bouton qui branchera les ressources GIT au site web en question.</p>
+    <p><img class="imagebo" src="./backoffice-git.png" alt=""></p>
+  </section>
+  <section id="sec-3">
+    <h1>MISES à JOUR</h1>
+    <p>Le clic sur le bouton “Mettre à jour” a deux actions en fonction de l’état du dépôt sur le serveur :</p>
+    <p>
+      <ul>
+        <li>Si le dépôt n’existe pas, il va tenter de créer une copie sur le serveur</li>
+        <li>Si le dépôt existe, il va mettre à jour le code depuis la source distante</li>
+      </ul>
+    </p>
+    <p>Après avoir cliqué, nous serons redirigés vers une page qui indique le bon déroulé des opérations.</p>
+    <p>Voici une liste des vérifications effectuées par l’action du bouton. Chaque vérification peut afficher une erreur sur l’écran récapitulatif. Les erreurs traitées sont affichées en français et sont suivies du retour brut de la commande afin d’aider au debug si nécessaire.</p>
+    <p>
+      <ul>
+        <li>Tentative de connexion au serveur du dépôt, afin de vérifier la configuration réseau</li>
+        <li>Vérification de l’existence du répertoire destination (= répertoire des thèmes)</li>
+        <li>Vérification de la possibilité de créer le répertoire du nouveau thème</li>
+        <li>Tentative de clonage du dépôt</li>
+        <li>Vérification que le nom du thème correspond à un thème existant et que l’URL du dépôt est la même.<br /> <span class="italic">Cette vérification permet d’éviter d’avoir 2 dépôts qui pointent vers le même thème</span>
+        </li>
+        <li>Tentative de mise à jour du code source</li>
+      </ul>
+    </p>
+    <p>D’autres erreurs pourraient s’afficher. Dans tous les cas, récupérer le texte et transmettre l'erreur via un ticket Jira.</p>
+    <p>Que l’action ait fonctionné sans problème ou qu’une erreur se soit produite, un bouton “Retour” permet de revenir au thème.</p>
+  </section>
+  <section id="sec-4">
+    <h1>KLOUDSPEAKER TO GIT</h1>
+    <p class="gras">Dans tous les cas, n'ayant pas la main actuellement sur le siteaccess du CMS, nous devons passer par Kaliop pour switcher de KS vers GIT.</p>
+    <p>Cela dit, pour passer vers GIT un thème qui est actuellement mis à jour via Kloudspeaker, deux méthodes sont possibles :</p>
+    <p>
+      <ul>
+        <li>Passer par Kloudspeaker pour supprimer le répertoire (il est conseillé de faire une copie de sauvegarde avant) et créer ensuite le thème git avec le même nom</li>
+        <li>Créer un thème git avec un "Nom du thème pour la config" différent du nom du thème en place + modifier la config du siteaccess pour utiliser le nouveau nom<br /><br />
+          <span class="italic">Exemple : le thème foire_de_paris est en place et est mis à jour via Kloudspeaker.<br /> Je veux le passer sur git.<br /> Je crée un dépôt, récupère les fichiers du thème en place et les commit sur le dépôt. Ensuite, je crée un objet "thème git" dans le backoffice et je lui mets comme nom "foire_de_paris_git" (ou "foire_de_paris_2018", il faut simplement qu'il soit différent du premier). Une fois l'ajout effectué, je modifie la config du siteaccess (Pour le moment, il faudra passer par un ticket Jira) pour enfin utiliser le nouveau nom du thème</span>
+        </li>
+      </ul>
+    </p>
+  </section>
+  <section id="sec-5">
+    <h1>FAQ</h1>
+    <div class="bodyintro2">
+        <nav class="vertical2">
+          <ul>
+            <li>
+              <label for="home2">Est-il possible de créer des branches et de les pousser en prod ?</label>
+              <input type="radio" checked="true" name="verticalMenu2" id="home2" />
+              <div>
+                <p>Les prestataires pourront créer autant de branches qu'ils veulent et faire tous les commits qu'ils veulent, mais quand sera venu le moment de pousser en prod, il faudra tout merge sur le master. C'est une mécanique commune avec l'utilisation de GIT</p>
+              </div>
+            </li>
+            <li>
+              <label for="blog2">Peut-on modifier les ressources directement depuis le backoffice du CMS ?</label>
+              <input type="radio" name="verticalMenu2" id="blog2" />
+              <div>
+                <p>L'interface ne modifiera absolument pas les repo des prestataires. La seule chose qui sera faite sera de la lecture. Toute la gestion des contenus se fera dans le système GIT.</p>
+              </div>
+            </li>
+            <li>
+              <label for="work2">Qui peut récupérer les ressources que nous mettrons sur GIT ?</label>
+              <input type="radio" name="verticalMenu2" id="work2" />
+              <div>
+                <p> Il existe 3 sources pour récupérer les thèmes :
+                <ul>
+                  <li>Kloudspeaker qui écrit directement sur le serveur, comme actuellement</li>
+                  <li>L'outil de versionning que nous mettrons à disposition des prestataires qui veulent utiliser GIT, mais qui n'ont pas leur serveur pour le gérer.</li>
+                  <li>L'outil de versionning des prestataires qui en ont un, ce qui n'a aucun rapport avec le nôtre. Pour se connecter à chacun, il nous faudra un utilisateur et un mot de passe en plus de l'URL.</li>
+                </ul>
+              </p>
+              </div>
+            </li>
+            <li>
+              <label for="work3">Comment se passe la mise à jour des ressources au niveau du cache cloudflare ?</label>
+              <input type="radio" name="verticalMenu2" id="work3" />
+              <div>
+                <p>Le traitement est exactement le même qu'actuellement. Il faut voir la possibilité d'utiliser GIT comme un raccourci à Kloudspeaker. Au final, le résultat est exactement le même : pour le cache navigateur, c'est géré via un header ETag ; pour Cloudflare, un appel est fait à leur API quand une modification est détectée.</p>
+              </div>
+            </li>
+            <li>
+              <label for="work4">Si un site utilise déjà des fichier sur Kloudspeaker, et que nous voulons switcher sur un GIT ?</label>
+              <input type="radio" name="verticalMenu2" id="work4" />
+              <div>
+                <p class="gras">Dans tous les cas, n'ayant pas la main actuellement sur le siteaccess du CMS, nous devons passer par Kaliop pour switcher de KS vers GIT.</p>
+                <p>Ceci étant dit, pour passer d'un dossier Kloudspeaker à un dépôt GIT, deux choix sont possibles :
+                  <ul>
+                    <li>Passer par Kloudspeaker pour supprimer le répertoire (il est vivement conseillé de faire une copie de sauvegarde avant) et créer ensuite le thème git avec le même nom</li>
+                    <li>Créer un thème git avec un "Nom du thème pour la config" différent du nom du thème en place et <span class="gras">modifier la config du siteaccess (ce qui suppose que nous avons la main dessus, ce qui n'est pas le cas à l'heure actuelle)</span> pour utiliser le nouveau nom.<br /><br />
+                      <span class="italic">Exemple : le thème foire_de_paris est en place et est mis à jour via Kloudspeaker. Je veux le passer sur git. Je crée un dépôt, récupère les fichiers du thème en place et les commit sur le dépôt. Ensuite, je crée un objet "thème git" dans le backoffice et je lui mets comme nom "foire_de_paris_git" (ou "foire_de_paris_2018", il faut simplement qu'il soit différent du premier). Une fois l'ajout effectué, je modifie la config du siteaccess (via un ticket Jira pour le moment) pour utiliser le nouveau nom du thème</span><br /><br />
+                    </li>
+                  </ul>
+                </p>
+              </div>
+            </li>
+            <li>
+              <label for="work5">Y a-t-il d'autres différences entre KloudSpeaker et GIT ?</label>
+              <input type="radio" name="verticalMenu2" id="work5" />
+              <div>
+                <p>Les thèmes GIT se greffent aux thèmes Kloudspeaker. Une fois les fichiers déposés sur le serveur, tout fonctionne exactement de la même manière. Dans tous les cas, il faut passer par le générateur de sites pour affecter un thème à un site.</p>
+                <p>Le fonctionnement de nos sites parait parfois complexe, voici comment tout fonctionne :</p>
+                <p>Les proxy (Varnish, Cloudflare) ont un délai de conservation de 5min<br />
+                Les navigateurs ont un délai de conservation d'une journée.<br />
+                Les css/js ont un header ETag qui permet de savoir si une modification existe sans forcément récupérer l'intégralité de la ressource.<br /><br />
+                Quand un visiteur arrive, son navigateur garde le contenu une journée avant de la redemander.<br />
+                Quand un proxy reçoit une demande sur ce contenu, il la conserve 5min. Au bout de 5min, si quelqu'un redemande la ressource, il va faire une demande au serveur avec la valeur qu'il a reçue en tant qu'ETag. Si la valeur correspond à la valeur actuelle, on lui répond que ça n'a pas changé et qu'il peut continuer à utiliser le fichier pour 5min supplémentaires.<br /><br />
+                Si ça a changé, on lui renvoie le nouveau fichier qu'il va garder 5min avant de demander si une modification existe.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </nav>
+    </div>
+  </section>
+  <!-- Début test 1 -->
+  <div id="sec-6">
+    <h1>BAC à SABLE
+      <button id="helpme" type="button" onclick="javascript:introJs().setOption('showProgress', true).start(); $('.introjs-prevbutton').html('← Retour');$('.introjs-nextbutton').html('Suivant →');$('.introjs-skipbutton').html('Fermer')">aide</button>
+    </h1>
+
+  <div id="maincontent-design" class="float-break"><div id="fix">
+
+    <div id="path">
+        <div id="path-design">
+
+<p class="path" id="yui_3_17_2_6_1502707489831_169"><span class="path-here-text">Vous êtes ici&nbsp;:</span>                    <a class="path">Comexposium</a>
+
+            <span class="slash">/</span>
+                        <a class="path">Thèmes git</a>
+
+            <span class="slash">/</span>
+                <span class="path">Thème GIT cercle</span>
+
+    &nbsp;</p>        </div>
+    </div>
+
+    <!-- Maincontent START -->
+
+<div class="content-view-full">
+ <div class="class-expo_theme_git">
+
+<div class="content-navigation">
+
+
+<div class="context-block">
+
+<div class="box-header">
+
+
+<h1 data-step="1" data-intro="Le bac à sable permet de tester et simuler le comportement de l'objet GIT dans le backoffice" class="context-title"><a><img class="transparent-png-icon" src="/share/icons/comexposium-admin/32x32/mimetypes/empty.png" width="32" height="32" alt="Thème git" title="Thème git"></a>&nbsp;Thème GIT cercle&nbsp;[Thème git]&nbsp;</h1>
+
+<div class="header-mainline"></div>
+
+</div>
+
+
+<div class="box-content">
+
+<div class="context-information">
+<p class="left modified">Dernière modification: 12/07/2017 17:44, <a>Bac à sable</a> (ID du nœud: 268992, ID de l'objet: 189377)</p>
+<p class="right translation">French (France)&nbsp;<img src="/share/icons/flags/fre-FR.gif" width="18" height="12" alt="" style="vertical-align: middle;"></p>
+<div class="break"></div>
+</div>
+
+<div id="window-controls" class="tab-block">
+  <div class="button-left"><a id="maincontent-hide" class="show-hide-tabs" title="Désactiver les &quot;onglets&quot; par défaut lorsque vous parcourez le contenu.">&nbsp;</a></div>
+<ul class="tabs tabs-by-cookie">
+
+    <li id="node-tab-view" class="first selected">
+                    <a id="aperculink" title="Afficher une vue simplifiée du contenu.">Aperçu</a>
+            </li>
+
+
+    <li id="node-tab-details" class="middle">
+                    <a title="Afficher les détails.">Détails</a>
+            </li>
+
+
+            <li id="node-tab-translations" class="middle">
+                    <a title="Afficher les traductions disponibles.">Traductions (1)</a>
+            </li>
+
+
+    <li id="node-tab-locations" class="middle">
+                    <a title="Afficher les emplacements.">Emplacements (1)</a>
+            </li>
+
+
+    <li id="node-tab-relations" class="middle">
+                    <a  title="Afficher les relations d'objet.">Relations (0)</a>
+            </li>
+
+
+    <li id="node-tab-ordering" class="middle">
+                    <a  title="Afficher le tri utilisé pour les sous-éléments.">Classement</a>
+            </li>
+
+
+            <li id="node-tab-eztags" class="middle">
+            <a title="Montrer un aperçu des attributs d'eZ Tags.">eZ Tags</a>
+    </li>
+
+
+
+        <li id="node-tab-ezfinder_content" class="middle">
+                    <a title="Solr index result">Solr</a>
+            </li>
+
+
+
+            <li id="node-tab-commentsbundle" class="last">
+            <a id="commentslink" title="Content comments overview.">Comments</a>
+    </li>
+
+            </ul>
+<div class="float-break"></div>
+<div class="tabs-content">
+
+<div id="node-tab-view-content" data-step="2" data-intro="Le bac à sable est conçu pour fonctionner de base avec la configuration suivante<br /><br />Il n'y a pas besoin du nom d'utilisateur ni du mot de passe" class="tab-content selected apercu">
+
+            <div class="block">
+                    <label>Titre:</label>
+
+<span id="titleTheme">Thème GIT cercle</span>            </div>
+            <div class="block">
+                    <label>Nom du thème pour la config:</label>
+
+<span id="nomTheme">cercles_des_dsi_fre</span>
+</div>
+            <div class="block">
+                    <label>URL du dépôt:</label>
+
+<span id="urlTheme">https://github.com/comexposium/test.git</span>            </div>
+            <div class="block">
+                    <label>Nom d'utilisateur:</label>
+
+<span id="userTheme"></span>
+            </div>
+                <label>Mot de passe:</label>
+        <span>** masqué **</span>
+    <div class="break"></div>
+</div>
+
+<!-- commentlinks -->
+<div id="node-tab-view-content" class="comments tab-content">
+
+            <div class="block">
+              <label>IMPORTANT:</label>
+              <span>Les champs éditables sont vulnérables aux attaques XSS</span>
+            </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="controlbar">
+
+
+<form id="buttonSubmitall">
+<input type="hidden" name="TopLevelNode" value="268992">
+<input type="hidden" name="ContentNodeID" value="268992">
+<input type="hidden" name="ContentObjectID" value="189377">
+
+<div class="button-left">
+<div class="block">
+                <select name="ContentObjectLanguageCode">
+                                   <option value="fre-FR" selected="selected">Français (France)</option>
+                                        <option value="">Nouvelle traduction</option>
+                        </select>
+    <input data-step="3" data-intro="Vous pouvez modifier la configuration de l'objet pour voir les différents messages d'erreurs que vous aurez dans le backoffice" class="button" name="EditButton" value="Modifier" title="Modifier le contenu de cet élément." readonly>
+    <input class="button" name="MoveNodeButton" value="Déplacer" title="Déplacer cet élément." readonly>
+    <input class="button" name="ActionRemove" value="Supprimer" title="Supprimer cet élément." readonly>
+    <input data-step="4" data-intro="Ensuite, il vous suffira de cliquer ici pour tester la configuration.<br><br> Si cela fonctionne, vous aurez un message de succès, sinon, vous aurez un message vous précisant l'erreur.<br /><br />" class="button" name="ActionPullTheme" value="Mettre à jour" title="Mettre à jour" readonly></div>
+</div>
+
+<div class="button-right">
+	<p class="versions">
+
+    <a title="Voir et gérer (copier, supprimer, etc.) les version de cet objet.">Gérer les versions</a>
+    </p>
+</div>
+
+<div class="float-break"></div>
+</form>
+
+</div>
+
+
+</div>
+
+
+<div id="content-view-children">    <div class="content-view-children">
+
+
+
+<!-- Children START -->
+
+<div class="context-block">
+<form name="children">
+<input type="hidden" name="ContentNodeID" value="268992">
+<input type="hidden" name="ContentObjectID" value="189377">
+
+
+<div class="box-header">
+
+    <h2 class="context-title"><a title="Monter d'un niveau."><img src="/design/admin/images/up-16x16-grey.png" width="16" height="16" alt="Monter d'un niveau." title="Monter d'un niveau."></a>&nbsp;Sous-éléments (0)</h2>
+
+</div>
+
+<div class="box-content">
+
+
+
+<div class="context-toolbar">
+<div class="float-break"></div>
+</div>
+
+
+
+
+
+
+    <input type="hidden" name="NodeID" value="268992">
+
+
+
+
+
+
+<div id="action-controls-container">
+    <div id="action-controls"><span id="ezbtn-items" class="yui-button yui-menu-button"><span class="first-child"><button type="button" id="ezbtn-items-button">Sélectionner</button></span></span><span id="ezbtn-new" class="yui-button yui-menu-button"><span class="first-child"><button type="button" id="ezbtn-new-button">Créer un nouvel élément</button></span></span><span id="ezbtn-more" class="yui-button yui-menu-button"><span class="first-child"><button type="button" id="ezbtn-more-button">Plus d'actions</button></span></span><span id="ezbtn-options" class="yui-button yui-push-button"><span class="first-child"><button type="button" id="ezbtn-options-button">Options du tableau</button></span></span></div>
+    <div id="tpg"><span id="[object HTMLDivElement]-prev-span" class="yui-pg-previous"><span data-icon=""></span></span><span id="[object HTMLDivElement]-next-span" class="yui-pg-next"><span data-icon=""></span></span></div>
+</div>
+<div id="content-sub-items-list" class="content-navigation-childlist yui-dt"><div class="yui-dt-mask" style="display: none;"></div><table summary=""><colgroup><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col></colgroup><thead><tr class="yui-dt-first yui-dt-last"><th id="yui-dt0-th-checkbox" rowspan="1" colspan="1" class="yui-dt0-col-checkbox yui-dt-col-checkbox yui-dt-first"><div id="yui-dt0-th-checkbox-liner" class="yui-dt-liner"><span class="yui-dt-label"></span></div></th><th id="yui-dt0-th-crank" rowspan="1" colspan="1" class="yui-dt0-col-crank yui-dt-col-crank"><div id="yui-dt0-th-crank-liner" class="yui-dt-liner"><span class="yui-dt-label"></span></div></th><th id="yui-dt0-th-thumbnail" rowspan="1" colspan="1" class="yui-dt0-col-thumbnail yui-dt-col-thumbnail yui-dt-hidden"><div id="yui-dt0-th-thumbnail-liner" class="yui-dt-liner"><span class="yui-dt-label">Miniature</span></div></th><th id="yui-dt0-th-name" rowspan="1" colspan="1" class="yui-dt0-col-name yui-dt-col-name yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-name-liner" class="yui-dt-liner"><span class="yui-dt-label"><a title="Click to sort ascending" class="yui-dt-sortable">Nom</a></span></div><div id="yui-dt0-th-name-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 24px;"></div></div></th><th id="yui-dt0-th-hidden_status_string" rowspan="1" colspan="1" class="yui-dt0-col-hidden_status_string yui-dt-col-hidden_status_string yui-dt-hidden yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-hidden_status_string-liner" class="yui-dt-liner"><span class="yui-dt-label"><a title="Click to sort ascending" class="yui-dt-sortable">Visibilité</a></span></div><div id="yui-dt0-th-hidden_status_string-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-class_name" rowspan="1" colspan="1" class="yui-dt0-col-class_name yui-dt-col-class_name yui-dt-hidden yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-class_name-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort ascending" class="yui-dt-sortable">Type</a></span></div><div id="yui-dt0-th-class_name-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-creator" rowspan="1" colspan="1" class="yui-dt0-col-creator yui-dt-col-creator yui-dt-hidden yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-creator-liner" class="yui-dt-liner"><span class="yui-dt-label">Modificateur</span></div><div id="yui-dt0-th-creator-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-modified_date" rowspan="1" colspan="1" class="yui-dt0-col-modified_date yui-dt-col-modified_date yui-dt-hidden yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-modified_date-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort ascending" class="yui-dt-sortable">Modifié</a></span></div><div id="yui-dt0-th-modified_date-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-published_date" rowspan="1" colspan="1" class="yui-dt0-col-published_date yui-dt-col-published_date yui-dt-sortable yui-dt-resizeable yui-dt-asc"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-published_date-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort descending" class="yui-dt-sortable">Publié</a></span></div><div id="yui-dt0-th-published_date-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 24px;"></div></div></th><th id="yui-dt0-th-translations" rowspan="1" colspan="1" class="yui-dt0-col-translations yui-dt-col-translations yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-translations-liner" class="yui-dt-liner"><span class="yui-dt-label">Traductions</span></div><div id="yui-dt0-th-translations-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 24px;"></div></div></th><th id="yui-dt0-th-section" rowspan="1" colspan="1" class="yui-dt0-col-section yui-dt-col-section yui-dt-hidden yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-section-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort ascending" class="yui-dt-sortable">Section</a></span></div><div id="yui-dt0-th-section-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-node_id" rowspan="1" colspan="1" class="yui-dt0-col-node_id yui-dt-col-node_id yui-dt-hidden yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-node_id-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort ascending" class="yui-dt-sortable">ID du nœud</a></span></div><div id="yui-dt0-th-node_id-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-node_remote_id" rowspan="1" colspan="1" class="yui-dt0-col-node_remote_id yui-dt-col-node_remote_id yui-dt-hidden yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-node_remote_id-liner" class="yui-dt-liner"><span class="yui-dt-label">ID externe du nœud</span></div><div id="yui-dt0-th-node_remote_id-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-contentobject_id" rowspan="1" colspan="1" class="yui-dt0-col-contentobject_id yui-dt-col-contentobject_id yui-dt-hidden yui-dt-sortable yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-contentobject_id-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort ascending" class="yui-dt-sortable">ID de l'objet</a></span></div><div id="yui-dt0-th-contentobject_id-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-contentobject_remote_id" rowspan="1" colspan="1" class="yui-dt0-col-contentobject_remote_id yui-dt-col-contentobject_remote_id yui-dt-hidden yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-contentobject_remote_id-liner" class="yui-dt-liner"><span class="yui-dt-label">ID externe de l'objet</span></div><div id="yui-dt0-th-contentobject_remote_id-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-contentobject_state" rowspan="1" colspan="1" class="yui-dt0-col-contentobject_state yui-dt-col-contentobject_state yui-dt-hidden yui-dt-resizeable"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-contentobject_state-liner" class="yui-dt-liner"><span class="yui-dt-label">État d'objet</span></div><div id="yui-dt0-th-contentobject_state-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 0px;"></div></div></th><th id="yui-dt0-th-priority" rowspan="1" colspan="1" class="yui-dt0-col-priority yui-dt-col-priority yui-dt-sortable yui-dt-resizeable yui-dt-editable yui-dt-last"><div class="yui-dt-resizerliner"><div id="yui-dt0-th-priority-liner" class="yui-dt-liner"><span class="yui-dt-label"><a  title="Click to sort ascending" class="yui-dt-sortable">Priorité</a></span></div><div id="yui-dt0-th-priority-resizer" class="yui-dt-resizer" style="left: auto; right: 0px; top: auto; bottom: 0px; height: 24px;"></div></div></th></tr></thead><tbody class="yui-dt-message" style=""><tr class="yui-dt-first yui-dt-last"><td colspan="17" class="yui-dt-empty"><div class="yui-dt-liner">No records found.</div></td></tr></tbody><tbody tabindex="0" class="yui-dt-data" style=""></tbody></table></div>
+
+<div class="yui-panel-container yui-dialog yui-overlay-hidden yui-simple-dialog shadow" id="to-dialog-container_c" style="visibility: hidden; left: 520px; top: 324px; z-index: 50;"><div id="to-dialog-container" class="yui-module yui-overlay yui-panel" style="visibility: inherit; width: 25em;"><div class="hd" id="to-dialog-container_h" style="cursor: move;">Options du tableau</div><div class="bd"><form name="frm_to-dialog-container"><input type="hidden" name="to-dialog-container" value=""><input type="hidden" name="to-dialog-container" value=""></form></div><a class="container-close">Close</a><div class="ft"><span class="button-group"><span id="yui-gen0" class="yui-button yui-push-button"><span class="first-child"><button type="button" id="yui-gen0-button">Fermer</button></span></span></span></div></div></div>
+
+
+
+</div>
+
+</form>
+
+</div>
+
+
+
+
+<!-- Children END -->
+</div>
+</div>
+
+</div>
+
+ </div>
+</div>
+    <!-- Maincontent END -->
+    </div>
+    <div class="break"></div>
+    </div>
+</div>
+  <!-- fin test 1 -->
+
+  <!-- Début test 2 -->
+
+  <div id="modification">
+  <div id="maincontent-design" class="float-break boutonmodifier"><div id="fixi">
+
+
+<div id="controlbar-top" class="controlbar">
+<div class="box-bc"><div class="box-ml">
+<div class="button-left">
+  <input class="defaultbutton publication" type="submit" name="PublishButton" value="Envoyer pour publication" title="Publier les contenus du brouillon qui est en cours d'édition. Le brouillon deviendra la version publiée de l'objet.">
+  <input class="button annulation" type="submit" name="StoreButton" value="Enregistrer le brouillon" title="Enregistrer les contenus du brouillon qui est en cours d'édition et continuer l'édition. Utiliser ce bouton périodiquement pour enregistrer votre travail.">
+  <input class="button annulation" type="submit" name="StoreExitButton" value="Enregistrer le brouillon et quitter" title="Enregistrer le brouillon qui est en cours d'édition et quitter le mode d'édition. Utiliser ce bouton quand vous avez besoin de quitter votre travail et pour continuer plus tard.">
+  <input class="button annulation" type="submit" name="DiscardButton" value="Annuler le brouillon" title="Annuler le brouillon qui est en cours d'édition. Cela supprimera les traductions qui appartiennent à ce brouillon.">
+</div>
+<div class="button-right"></div>
+<div class="float-break"></div>
+</div></div>
+</div>
+
+<!-- Maincontent START -->
+
+<div class="content-edit" id="yui_3_17_2_6_1502709865288_185">
+
+<div class="context-block" id="yui_3_17_2_6_1502709865288_184">
+
+
+
+<div class="box-header">
+
+<h1 class="context-title"><img class="transparent-png-icon" src="/share/icons/comexposium-admin/32x32/mimetypes/empty.png" width="32" height="32" alt="Thème git" title="Thème git">&nbsp;Editer &lt;Thème GIT cercle&gt; (Thème git)</h1>
+
+<div class="header-mainline"></div>
+
+</div>
+
+<div class="box-content" id="yui_3_17_2_6_1502709865288_183">
+
+<div class="context-information"><p class="right translation">
+  French (France)&nbsp;<img src="/share/icons/flags/fre-FR.gif" width="18" height="12" style="vertical-align: middle;" alt="fre-FR">
+</p>
+<div class="break"></div>
+</div>
+
+<div class="context-attributes" id="yui_3_17_2_6_1502709865288_182">
+  <div class="block ezcca-edit-datatype-ezstring ezcca-edit-title" id="yui_3_17_2_6_1502709865288_181">
+                      <label>Titre
+               <span class="required">(requis)</span>                :
+                          </label>
+          <input id="ezcoa-1456_title" class="box ezcc-expo_theme_git ezcca-expo_theme_git_title" type="text" size="70" name="ContentObjectAttribute_ezstring_data_text_2832307" value="Thème GIT cercle">
+          <input type="hidden" name="ContentObjectAttribute_id[]" value="2832307">
+          </div><div class="block ezcca-edit-datatype-ezstring ezcca-edit-name">
+                      <label>Nom du thème pour la config
+               <span class="required">(requis)</span>                :
+               <span class="classattribute-description">seulement des lettres minuscules sans accents et des _</span>            </label>
+          <input id="ezcoa-1457_name" class="box ezcc-expo_theme_git ezcca-expo_theme_git_name" type="text" size="70" name="ContentObjectAttribute_ezstring_data_text_2832308" value="cercles_des_dsi_fre">
+          <input type="hidden" name="ContentObjectAttribute_id[]" value="2832308">
+          </div><div class="block ezcca-edit-datatype-ezstring ezcca-edit-repo_url">
+                      <label>URL du dépôt
+               <span class="required">(requis)</span>                :
+                          </label>
+          <input id="ezcoa-1458_repo_url" class="box ezcc-expo_theme_git ezcca-expo_theme_git_repo_url" type="text" size="70" name="ContentObjectAttribute_ezstring_data_text_2832309" value="https://github.com/comexposium/test.git">
+          <input type="hidden" name="ContentObjectAttribute_id[]" value="2832309">
+          </div><div class="block ezcca-edit-datatype-ezstring ezcca-edit-repo_user">
+                      <label>Nom d'utilisateur
+                              :
+                          </label>
+          <input id="ezcoa-1459_repo_user" class="box ezcc-expo_theme_git ezcca-expo_theme_git_repo_user" type="text" size="70" name="ContentObjectAttribute_ezstring_data_text_2832310" value="">
+          <input type="hidden" name="ContentObjectAttribute_id[]" value="2832310">
+          </div><div class="block ezcca-edit-datatype-ezstring ezcca-edit-repo_password">
+                      <label>Mot de passe
+                              :
+                          </label>
+          <input id="ezcoa-1460_repo_password" class="box ezcc-expo_theme_git ezcca-expo_theme_git_repo_password" type="text" size="70" name="ContentObjectAttribute_ezstring_data_text_2832311" value="">
+          <input type="hidden" name="ContentObjectAttribute_id[]" value="2832311">
+          </div>
+</div>
+
+</div>
+<div class="controlbar">
+
+<div class="block">
+      <input class="defaultbutton publication" type="submit" name="PublishButton" value="Envoyer pour publication" title="Publier les contenus du brouillon qui est en cours d'édition. Le brouillon deviendra la version publiée de l'objet.">
+  <input class="button annulation" type="submit" name="StoreButton" value="Enregistrer le brouillon" title="Enregistrer les contenus du brouillon qui est en cours d'édition et continuer l'édition. Utiliser ce bouton périodiquement pour enregistrer votre travail.">
+  <input class="button annulation" type="submit" name="StoreExitButton" value="Enregistrer le brouillon et quitter" title="Enregistrer le brouillon qui est en cours d'édition et quitter le mode d'édition. Utiliser ce bouton quand vous avez besoin de quitter votre travail et pour continuer plus tard.">
+  <input class="button annulation" type="submit" name="DiscardButton" value="Annuler le brouillon" title="Annuler le brouillon qui est en cours d'édition. Cela supprimera les traductions qui appartiennent à ce brouillon.">
+  <input type="hidden" name="DiscardConfirm" value="1">
+</div>
+
+</div>
+
+</div>
+<a class="scroll-to-top" hidden="hidden" style="transition-duration: initial; transition-timing-function: initial; transition-delay: initial; opacity: 0; display: none;">↑&nbsp;Retour en haut</a>
+
+
+
+<div class="context-block" id="content-relation-items">
+
+<div class="box-header"><div class="box-ml">
+
+<h2 class="context-title">Objets associés (0)</h2>
+
+
+
+</div></div>
+
+<div class="box-ml"><div class="box-mr"><div class="box-content">
+<div class="block">
+<p>Il n'y a pas d'objets en relation avec celui actuellement modifié.</p>
+</div>
+</div></div></div>
+
+<div class="controlbar">
+<div class="box-bc"><div class="box-ml">
+<div class="block">
+
+      <input class="button-disabled" type="submit" name="DeleteRelationButton" value="Supprimer la sélection" disabled="disabled">
+
+  <input class="button" type="submit" name="BrowseObjectButton" value="Ajouter un objet existant" title="Ajouter un élément existant comme objet relié.">
+  <input class="button" type="submit" name="UploadFileRelationButton" value="Télécharger un nouvel objet" title="Télécharger un fichier et l'ajouter en tant qu'objet relié.">
+</div>
+</div></div>
+</div>
+
+</div>
+
+
+
+
+  <input type="hidden" name="UseNodeAssigments" value="0">
+</div>
+
+</div>
+<div class="break"></div>
+</div>
+</div>
+
+  <!-- Fin test 2 -->
+
+  <!-- Début test 3 -->
+
+  <div id="maj">
+
+    <div id="maincontent-design" class="float-break"><div id="fix">
+
+    <!-- Maincontent START -->
+
+    <div class="box-header">
+</div>
+
+<div class="box-content">
+
+            <div id="textmaj">Mise à jour réussie</div>
+
+    <div class="buttons">
+        <button id="button-back">Retour</button>
+    </div>
+
+</div>
+
+    <!-- Maincontent END -->
+    </div>
+    </div>
+
+  </div>
+
+  <!-- Fin test 3 -->
+
+</main>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.6.0/intro.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $('nav a[href^="#"]').on('click', function(e) {
+      var $root = $('html, body');
+
+      $root.animate({
+        scrollTop: $($(this).attr('href')).offset().top
+      }, 500);
+
+      e.preventDefault();
+      $(this).addClass('current').siblings().removeClass('current');
+      });
+
+      $("#maincontent-design a").click(function(event) {
+        event.preventDefault();
+      });
+
+      $("#buttonSubmitall > div.button-left > div > input:nth-child(2)").click(function(event) {
+        /* Act on the event */
+        event.preventDefault();
+        $('#fix .content-view-full').fadeOut(100);
+        $('#modification').fadeIn(100);
+        $('#helpme').fadeOut(100);
+      });
+
+      $(".annulation").click(function(event) {
+        /* Act on the event */
+        event.preventDefault();
+        $('#modification').fadeOut(100);
+        $('#fix .content-view-full').fadeIn(100);
+        $('#helpme').fadeIn(100);
+      });
+
+      var nomTheme = $("#nomTheme");
+      var urlTheme = $("#urlTheme");
+      var titleTheme = $("#titleTheme");
+      var userTheme = $("#userTheme");
+      var newnomTheme = $("#ezcoa-1457_name");
+      var newurlTheme = $("#ezcoa-1458_repo_url");
+      var newtitleTheme = $("#ezcoa-1456_title");
+      var newuserTheme = $("#ezcoa-1459_repo_user");
+
+      $(newurlTheme).on("input", function(e) {
+      urlTheme.html(newurlTheme.val())
+      });
+
+      $(newtitleTheme).on("input", function(e) {
+      titleTheme.html(newtitleTheme.val())
+      });
+
+      $(newnomTheme).on("input", function(e) {
+      nomTheme.html(newnomTheme.val())
+      });
+
+      $(newuserTheme).on("input", function(e) {
+      userTheme.html(newuserTheme.val())
+      });
+
+      $(".publication").click(function(event) {
+        /* Act on the event */
+        event.preventDefault();
+        $('#modification').fadeOut(100);
+        $('#fix .content-view-full').fadeIn(100);
+        $('#helpme').fadeIn(100);
+      });
+
+      $("#buttonSubmitall > div.button-left > div > input:nth-child(5)").click(function(event) {
+        /* Act on the event */
+        if(nomTheme.html() == 'cercles_des_dsi_fre') {
+          $('#fix .content-view-full').fadeOut(100);
+          $('#maj').fadeIn(100);
+          $('#helpme').fadeOut(100);
+        } else{
+          $("#textmaj").html("Dépôt ajouté");
+          $('#fix .content-view-full').fadeOut(100);
+          $('#maj').fadeIn(100);
+          $('#helpme').fadeOut(100);
+        }
+        if (urlTheme.html() == 'https://github.com/comexposium/test.git') {
+          $('#fix .content-view-full').fadeOut(100);
+          $('#maj').fadeIn(100);
+          $('#helpme').fadeOut(100);
+        } else {
+          $("#textmaj").html("Impossible de se connecter au serveur : vérifier l\'URL ou contacter l\'infra pour ajouter la règle réseau");
+          $('#fix .content-view-full').fadeOut(100);
+          $('#wrongurl').fadeIn(100);
+          $('#helpme').fadeOut(100);
+        }
+        if ($("#maj").css('display', 'block')) {
+          $("#maj").css('margin-bottom','520px')
+        } else {
+          return false;
+        }
+      });
+
+      $("#button-back").click(function(event) {
+        /* Act on the event */
+        $('#maj').fadeOut(100);
+        $('#fix .content-view-full').fadeIn(100);
+        $('#helpme').fadeIn(100);
+      });
+
+
+      fired = true;
+      function isScrolledIntoView(elem) {
+          var docViewTop = $(window).scrollTop();
+          var docViewBottom = docViewTop + $(window).height();
+          var elemTop = $(elem).offset().top;
+          var elemBottom = elemTop + $(elem).height();
+          return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+      }
+            $(window).on('scroll', function() {
+                if(isScrolledIntoView($('#sec-6')) && fired == true) {
+                  introJs().setOption('showProgress', true).start();
+                  $(".introjs-prevbutton").html("← Retour");
+                  $(".introjs-nextbutton").html("Suivant →");
+                  $(".introjs-skipbutton").html("Fermer");
+                  fired = false;
+                }
+            });
+
+        $("#aperculink").click(function(event) {
+          /* Act on the event */
+          event.preventDefault();
+          $(".apercu").fadeIn(100);
+          $(".comments").fadeOut(100);
+          $("ul.tabs li").removeClass('selected');
+          $("#node-tab-view").addClass('selected');
+        });
+
+
+        $("#commentslink").click(function(event) {
+          /* Act on the event */
+          event.preventDefault();
+          $(".apercu").fadeOut(100);
+          $(".comments").fadeIn(100);
+          $("ul.tabs li").removeClass('selected');
+          $("#node-tab-commentsbundle").addClass('selected');
+        });
+    });
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+#fullpage-bloc-1-texte{
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    background: url(/theme/guidelines_desktop/img/bc-landingpage-test.jpg) repeat-x 0 0;
+    margin: 0 auto;
+    top: 0;
+left: 0;
+    z-index: 9999;
+}
+
+div#fullpage-bloc-1-texte h2 {
+    text-align: center;
+    margin-top: 36vh;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-bottom: 0;
+}
+div#fullpage-bloc-1-texte h3 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-bottom: 0;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+div#fullpage-bloc-1-texte p a {
+    text-align: center;
+    background-color: #E48B38;
+    padding: 0.4em;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+div#fullpage-bloc-1-texte p {
+    text-align: center;
+}

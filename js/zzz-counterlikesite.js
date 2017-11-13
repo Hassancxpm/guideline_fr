@@ -1,4 +1,4 @@
-var database = firebase.database().ref();
+/*var database = firebase.database().ref();
 var like = $('#like');
 var dislike = $('#dislike');
 var thelike;
@@ -52,3 +52,4 @@ database.once('value').then(function(datasnapshot){
   $('#likecounter').html(thelike);
   $('#dislikecounter').html(thedislike);
 })
+*/
